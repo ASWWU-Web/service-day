@@ -1,3 +1,17 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<!-- Put all of the header/general layout code here -->
+<!-- Index.html is auto-generated, so this file acts as THE main file -->
+<br>
+<div class="container">
+  <small>
+    This is some global html found in app/templates/application.hbs
+    {{#if session.isAuthenticated}}
+      {{#if isAdmin}}
+        {{#link-to "admin"}}Admin Page{{/link-to}}
+      {{/if}}
+      <button class="btn btn-primary btn-sm" {{action "signOut"}}>Log Out</button>
+    {{/if}}
+  </small>
+  <br><br>
+  {{outlet}}
+</div>
+<!-- Place footer and whatever would go after the body here -->

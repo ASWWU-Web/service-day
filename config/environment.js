@@ -4,6 +4,12 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'service-day',
     environment: environment,
+    firebase: 'https://serviceday.firebaseio.com/',
+    torii: {
+      sessionServiceName: 'session'
+    },
+    org_pass: "secret",
+    admin_emails: ["brock.haugen@icloud.com"],
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

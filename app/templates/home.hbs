@@ -1,0 +1,31 @@
+
+<div class="row">
+  <h2>Welcome to Service Day SignUps</h2>
+
+  {{#if session.isAuthenticated}}
+
+    <h4>Welcome Back {{session.currentUser.email}}</h4>
+    <button class="btn btn-primary" {{action "signOut"}}>Log Out</button>
+    <br><br>
+    {{#link-to "signup"}}<h3>Get started</h3>{{/link-to}}
+
+  {{else}}
+
+    <h4>
+      <a href='' {{action "hideRegister"}}>Log in </a>
+      <i>or </i>
+      <a href='' {{action "showRegister"}}>Register an account </a>
+      to continue
+    </h4>
+    <label>Email: <input name="email"></label><br>
+    <label>Password: <input name="password" type="password"></label><br>
+    <p id="error-text" style="color: red"></p>
+    <div id="registerStuff" class="hidden-xl-down">
+      <button class="btn btn-primary" {{action "register"}}>Register</button>
+    </div>
+    <div>
+      <button class="btn btn-primary" {{action "signIn"}}>Log in</button>
+    </div>
+
+  {{/if}}
+</div>

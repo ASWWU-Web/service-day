@@ -1,0 +1,19 @@
+
+<div class="row">
+  <h2>Admin Page</h2>
+  <br>
+  <h4>Update Instructions</h4>
+  {{#each model.instructions as |ins|}}
+    <h5>{{ins.name}}</h5>
+    {{textarea value=ins.text}}
+    <p id={{concat "success-text-" ins.name}}></p>
+    <button class="btn btn-success" {{action "save" ins}}>Save</button>
+  {{/each}}
+  <br>
+  <h4>Organizations (Click to Edit)</h4>
+  <ul>
+    {{#each model.organizations as |org|}}
+      <li>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</li>
+    {{/each}}
+  </ul>
+</div>
