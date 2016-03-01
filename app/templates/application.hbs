@@ -2,30 +2,21 @@
 <!-- Index.html is auto-generated, so this file acts as THE main file -->
 <br>
 <div class="container">
-<!--  <small>
-    This is some global html found in app/templates/application.hbs
-    {{#if session.isAuthenticated}}
-      {{#if isAdmin}}
-        {{link-to "Admin" "admin"}}
-      {{/if}}
-      <button class="btn btn-primary btn-sm" {{action "signOut"}}>Log Out</button>
-    {{/if}}
-  </small>-->
-<nav class="navbar navbar-light bg-faded">
-  {{link-to "Service Day" "home" class="navbar-brand"}}
-  <ul class="nav navbar-nav pull-xs-right">
-    {{#if session.isAuthenticated}}
-      {{#if isAdmin}}
+  <nav class="navbar navbar-light bg-faded">
+    {{link-to "Service Day" "home" class="navbar-brand"}}
+    <ul class="nav navbar-nav pull-xs-right">
+      {{#if session.isAuthenticated}}
+        {{#if isAdmin}}
+          <li class="nav-item">
+            {{link-to "Admin" "admin" class="nav-link"}}
+          </li>
+        {{/if}}
         <li class="nav-item">
-          {{link-to "Admin" "admin" class="nav-link"}}
+          <button class="btn btn-primary-outline" {{action "signOut"}}>Log Out</button>
         </li>
       {{/if}}
-      <li class="nav-item">
-        <button class="btn btn-primary-outline" {{action "signOut"}}>Log Out</button>
-      </li>
-    {{/if}}
-  </ul>
-</nav>
+    </ul>
+  </nav>
   <br><br>
   {{outlet}}
 </div>
