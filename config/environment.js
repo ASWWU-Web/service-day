@@ -9,7 +9,7 @@ module.exports = function(environment) {
       sessionServiceName: 'session'
     },
     org_pass: "secret",
-    admin_emails: ["brock.haugen@icloud.com"],
+    admin_emails: ["brock.haugen@icloud.com","ryan.s.rabello@gmail.com"],
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
