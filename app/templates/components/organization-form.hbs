@@ -1,3 +1,61 @@
 
-<label>Name: {{input type="text" value=org.name}}</label>
-<label>description: {{textarea type="text" value=org.description}}</label>
+<!--<label>Organization Name: {{input type="text" value=org.name}}</label>
+<label>Description: {{textarea type="text" value=org.description}}</label>
+<label>Address: {{input type="text" value=org.address}}</label>
+<label>Contact name: {{input type="text" value=org.contact_name}}</label>
+<label>Contact Phone: {{input type="text" value=org.contact_phone}}</label>
+<label>Contact Email: {{input type="text" value=org.contact_email}}</label>
+<label>Name of person who will be on site the day of the project: {{input type="text" value=org.person_on_site}}</label>
+<label>-->
+
+<fieldset class='form-group'>
+	<label for='name'> Organization Name:</label>
+	{{input type='text' value=org.name class='form-control' id='name'}}
+</fieldset>
+
+<fieldset class='form-group'>
+	<label for='contact_name'> Contact Name: </label>
+	{{input type='text' value=org.contact_name class='form-control' id='contact_name'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='contact_phone'> Contact Phone: </label>
+	{{input type='tel' value=org.contact_phone class='form-control' id='contact_phone'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='contact_email'> Contact Email: </label>
+	{{input type='email' value=org.contact_email class='form-control' id='contact_email'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='person_on_site'> Person who will be on site during the project: </label>
+	{{input type='text' value=org.person_on_site class='form-control' id='person_on_site'}}
+</fieldset>
+
+<fieldset class='form-group'>
+	<label for='address'> Address:</label>
+	{{input type='text' value=org.address class='form-control' id='address'}}
+</fieldset>
+
+<fieldset class='form-group'>
+	<label for='description'> Description: </label>
+	{{textarea type='text' value=org.description class='form-control' id='description'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='special_instructions'> Special Instructions: </label>
+	{{input type='text' value=org.special_instructions class='form-control' id='special_instructions'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='notes'> Notes for Administration only: </label>
+	{{input type='text' value=org.notes class='form-control' id='notes'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='minimum_count'> Minimum Number of Volunteers: </label>
+	{{input type='number' value=org.minimum_count class='form-control' id='minimum_count'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='maximum_count'> Maximum Number of Volunteers: </label>
+	{{input type='number' value=org.maximum_count class='form-control' id='maximum_count'}}
+</fieldset>
+<fieldset class='form-group'>
+	<label for='tools'> Tools required (if any): </label>
+	{{input type='text' value=org.tools class='form-control' id='tools'}}
+</fieldset>
