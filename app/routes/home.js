@@ -2,6 +2,11 @@ import Ember from 'ember';
 import ENV from '../config/environment';
 
 export default Ember.Route.extend({
+  beforeModel() {
+    if (this.get('session.isAuthenticated')) {
+      this.transitionTo('signup');
+    }
+  },
   actions: {
     showRegister() {
       // could change this to open a modal??

@@ -2,15 +2,16 @@
 <div class="row">
   <h2>Admin Page</h2>
   <br>
-  <h4>Update Instructions</h4>
+  <h4>Update Instructions For:</h4>
   {{#each model.instructions as |ins|}}
-    <h5>{{ins.name}}</h5>
-    {{textarea value=ins.text}}
+    <br>
+    <h5>{{ins.name}}s</h5>
+    {{textarea value=ins.text class="form-control"}}
     <p id={{concat "success-text-" ins.name}}></p>
     <button class="btn btn-success" {{action "save" ins}}>Save</button>
   {{/each}}
-  <br>
-  <h4>Organizations (Click to Edit)</h4>
+  <br><br>
+  <h4>All Organizations (Click to Edit)</h4>
   <ul>
     {{#each model.organizations as |org|}}
       <li>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</li>

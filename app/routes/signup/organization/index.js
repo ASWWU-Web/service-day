@@ -12,7 +12,7 @@ export default Ember.Route.extend({
     controller.set("model", model);
     this.get("store").findAll("instructions").then(function(ins) {
       ins.forEach(function(i) {
-        if (i.get('name') == "organization") {
+        if (i.get('name') === "organization") {
           controller.set("instructions", i);
         }
       });

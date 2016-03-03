@@ -1,14 +1,14 @@
 <!-- Put all of the header/general layout code here -->
 <!-- Index.html is auto-generated, so this file acts as THE main file -->
-<br>
-<div class="container">
-  <nav class="navbar navbar-light bg-faded">
-    {{link-to "Service Day" "home" class="navbar-brand"}}
+
+<nav class="navbar navbar-light bg-faded">
+  <div class="container-fluid">
+    {{link-to "Service Day Signups" "home" class="navbar-brand"}}
     <ul class="nav navbar-nav pull-xs-right">
       {{#if session.isAuthenticated}}
         {{#if isAdmin}}
           <li class="nav-item">
-            {{link-to "Admin" "admin" class="nav-link"}}
+            {{link-to "Admin" "admin" class="btn btn-danger-outline"}}
           </li>
         {{/if}}
         <li class="nav-item">
@@ -16,7 +16,9 @@
         </li>
       {{/if}}
     </ul>
-  </nav>
+  </div>
+</nav>
+<div class="container">
   <br><br>
   {{outlet}}
 </div>

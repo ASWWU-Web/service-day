@@ -1,12 +1,13 @@
 
 <div class="row">
-  {{#link-to "signup.organization" class="btn btn-primary"}}Back{{/link-to}}
+  {{#link-to "signup.organization" class="btn btn-primary"}}Back To Your Organizations{{/link-to}}
   <br><br>
   <form {{action "save" on="submit"}}>
     {{organization-form org=model}}
     <p id="success-text" style="color: green"></p>
-    {{#link-to "signup.organization" class="btn btn-primary"}}Back{{/link-to}}
+    {{#link-to "signup.organization" class="btn btn-primary"}}Back To Your Organizations{{/link-to}}
     <button type="submit" class="btn btn-success">Save!</button>
     <button type="submit" class="btn btn-danger btn-sm" {{action "destroy"}}>Delete</button>
   </form>
+  <br><br>
 </div>

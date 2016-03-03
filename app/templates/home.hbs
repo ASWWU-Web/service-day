@@ -17,14 +17,27 @@
       <a href='' {{action "showRegister"}}>Register an account </a>
       to continue
     </h4>
-    <label>Email: <input name="email"></label><br>
-    <label>Password: <input name="password" type="password"></label><br>
-    <p id="error-text" style="color: red"></p>
-    <div id="registerStuff" class="hidden-xl-down">
-      <button class="btn btn-primary" {{action "register"}}>Register</button>
-    </div>
-    <div>
-      <button class="btn btn-primary" {{action "signIn"}}>Log in</button>
+    <br>
+    <div class="col-xs-12 align-center">
+      <div class="row">
+        <label class="col-xs-12 col-md-8 col-md-offset-2">
+          Email: <input name="email" class="form-control">
+        </label>
+        <label class="col-xs-12 col-md-8 col-md-offset-2">
+          Password: <input name="password" type="password" class="form-control">
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <p id="error-text" style="color: red"></p>
+          <div id="registerStuff">
+            <button class="btn btn-primary" {{action "register"}}>Register</button>
+          </div>
+          <div class="hidden-xl-down">
+            <button class="btn btn-primary" {{action "signIn"}}>Log in</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   {{/if}}

@@ -8,9 +8,9 @@ module.exports = function(environment) {
     torii: {
       sessionServiceName: 'session'
     },
-    org_pass: "secret",
-    admin_emails: ["brock.haugen@icloud.com","ryan.s.rabello@gmail.com"],
-    baseURL: '/',
+    org_pass: "serviceDay2016",
+    admin_emails: ["brock.haugen@wallawalla.edu","ryan.s.rabello@gmail.com","kelia.cook@wallawalla.edu"],
+    baseURL: '/serviceday',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
