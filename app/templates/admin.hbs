@@ -11,7 +11,7 @@
     <button class="btn btn-success" {{action "save" ins}}>Save</button>
   {{/each}}
   <br><br>
-  <h4>All Organizations (Click to Edit)</h4>
+  <h4>All Projects (Click to Edit)</h4>
   <ul>
     {{#each model.organizations as |org|}}
       <li>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</li>

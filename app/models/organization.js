@@ -8,6 +8,7 @@ export default DS.Model.extend({
   contact_phone: DS.attr('string'),
   contact_email: DS.attr('string'),
   person_on_site: DS.attr('string'),
+  person_on_site_contact: DS.attr('string'),
   description: DS.attr('string'),
   special_instructions: DS.attr('string'),
   notes: DS.attr('string'),

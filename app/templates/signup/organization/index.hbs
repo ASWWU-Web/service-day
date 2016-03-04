@@ -1,7 +1,7 @@
 
 <div class="row">
   <h5>{{instructions.text}}</h5>
-  <h3>Here are the organizations you have created so far:</h3>
+  <h3>Here are the projects you have created so far:</h3>
   {{#each model as |org|}}
     {{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}<br>
   {{/each}}
