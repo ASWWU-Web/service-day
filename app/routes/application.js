@@ -13,7 +13,7 @@ export default Ember.Route.extend({
   actions: {
     signOut: function() {
       this.get("session").close();
-      window.location.reload();
+      window.location.href = window.location.origin + ENV.baseURL + '/';
     }
   }
 });
