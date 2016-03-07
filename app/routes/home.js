@@ -2,21 +2,32 @@ import Ember from 'ember';
 import ENV from '../config/environment';
 
 export default Ember.Route.extend({
+  'isRegister': true,
   beforeModel() {
     if (this.get('session.isAuthenticated')) {
       this.transitionTo('signup');
     }
   },
   actions: {
+    submit(){
+      console.log("submit()");
+      if(this.get('isRegister'))
+        this.send('register');
+      else {
+        this.send('signIn');
+      }
+    },
     showRegister() {
       // could change this to open a modal??
       Ember.$('#registerStuff').removeClass('hidden-xl-down');
       Ember.$('#registerStuff + div').addClass('hidden-xl-down');
+      this.set('isRegister',true);
     },
     hideRegister() {
       // could change this to open a modal??
       Ember.$('#registerStuff').addClass('hidden-xl-down');
       Ember.$('#registerStuff + div').removeClass('hidden-xl-down');
+      this.set('isRegister',false);
     },
     register: function() {
       var self = this;
