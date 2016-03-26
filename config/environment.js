@@ -9,7 +9,7 @@ module.exports = function(environment) {
       sessionServiceName: 'session'
     },
     org_pass: "serviceDay2016",
-    admin_emails: ["brock.haugen@wallawalla.edu","ryan.s.rabello@gmail.com","community.service@wallawalla.edu"],
+    admin_emails: ["brock.haugen@wallawalla.edu","ryan.s.rabello@gmail.com","community.service@wallawalla.edu","karin.gitchel@wwcc.edu","serviceevents@whitman.edu"],
     baseURL: '/serviceday',
     locationType: 'auto',
     EmberENV: {
