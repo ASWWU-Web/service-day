@@ -1,6 +1,6 @@
 
 <div class="row">
-  <h2>Welcome to Service Day SignUps</h2>
+  <h2 class="text-xs-center">Welcome to Service Day SignUps</h2>
 
   {{#if session.isAuthenticated}}
 
@@ -11,7 +11,7 @@
 
   {{else}}
 
-    <h4>
+    <h4 class="text-xs-center">
       <a href='' {{action "hideRegister"}}>Log in </a>
       <i>or </i>
       <a href='' {{action "showRegister"}}>Register an account </a>
