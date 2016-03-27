@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('student');
   });
   this.route('admin');
+  this.route('resetPassword');
 });
 
 export default Router;

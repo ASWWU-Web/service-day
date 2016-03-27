@@ -3,7 +3,8 @@
 
 <nav class="navbar navbar-light bg-faded">
   <div class="container-fluid">
-    {{link-to "Service Day Signups" "home" class="navbar-brand"}}
+    <img class="pull-xs-left" height="60px" style="padding:5px" src="./wwu-logo-bottom.svg"/>
+    {{#link-to "home" class="navbar-brand"}}<div style="margin-top: 13px; margin-left: 10px;">Service Day Signups</div>{{/link-to}}
     <ul class="nav navbar-nav pull-xs-right">
       {{#if session.isAuthenticated}}
         {{#if isAdmin}}
@@ -16,6 +17,7 @@
         </li>
       {{/if}}
     </ul>
+
   </div>
 </nav>
 <div class="container">
