@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <h4 class="text-xs-center">Change Password</h4>
+    Old Password:<input name="oldPass" type="password" class="form-control">
+    <br>
+    New Password:<input name="newPass" type="password" class="form-control">
+    <br>
+    Verify new Password:<input name="verifyPass" type="password" class="form-control">
+    <p id="change-error" style="color:red;"></p>
+    <button class="btn btn-primary" {{action "changePassword" insert-newline='submit'}}>Change</button>
+  </div>
+  {{outlet}}
+</div>

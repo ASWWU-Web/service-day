@@ -16,6 +16,7 @@ Router.map(function() {
   });
   this.route('admin');
   this.route('resetPassword');
+  this.route('account');
 });
 
 export default Router;
