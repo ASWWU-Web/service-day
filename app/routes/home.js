@@ -39,9 +39,14 @@ export default Ember.Route.extend({
         password: password
       }, function(error, userData) {
         if (error) {
-          Ember.$('#error-text').text(error);
+          //This makes it so that the user doens't have to click "login" 
+          if(error == "Error: The specified email address is already in use."){
+            self.send("signIn");
+          }else {
+            Ember.$('#error-text').text(error);
+          }
         } else {
-          console.log("Successfully created user account with uid:", userData.uid);
+          //console.log("Successfully created user account with uid:", userData.uid);
           self.send('signIn');
         }
       });
