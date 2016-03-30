@@ -13,6 +13,7 @@ export default Ember.Route.extend({
         Ember.$('#change-error').text(text);
         Ember.$('#change-error').css("color",color);
       };
+      say("Working...","grey");
       var oldPass = Ember.$('input[name=oldPass]').val();
       var newPass = Ember.$('input[name=newPass]').val();
       var verifyPass = Ember.$('input[name=verifyPass]').val();
