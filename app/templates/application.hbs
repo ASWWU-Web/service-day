@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-light bg-faded">
   <div class="container-fluid">
-    <img class="pull-xs-left" style="padding:5px; height: 2.7rem;" src="./wwu-logo.svg"/>
+    {{#link-to "home" }}<img class="pull-xs-left" style="padding:5px; height: 2.7rem;" src="./wwu-logo.svg"/>{{/link-to}}
     {{#link-to "home" class="navbar-brand"}}<div style="padding-left:1rem;">Service Day Signups</div>{{/link-to}}
     <ul class="nav navbar-nav pull-xs-right">
       {{#if session.isAuthenticated}}
