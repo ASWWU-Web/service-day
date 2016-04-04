@@ -17,4 +17,41 @@
       <li>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</li>
     {{/each}}
   </ul>
+
 </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Address</th>
+      <th>Contact Name</th>
+      <th>Contact Phone</th>
+      <th>Contact Email</th>
+      <th>Person on site</th>
+      <th>Description</th>
+      <th>Instructions</th>
+      <th>Notes for Administration</th>
+      <th>Min Number of Volunteers</th>
+      <th>Max Number of Volunteers</th>
+      <th>Tools required</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model.organizations as |org|}}
+      <tr>
+        <td>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</td>
+        <td>{{org.address}}</td>
+        <td>{{org.contact_name}}</td>
+        <td>{{org.contact_phone}}</td>
+        <td>{{org.contact_email}}</td>
+        <td>{{org.person_on_site}}</td>
+        <td>{{org.description}}</td>
+        <td>{{org.special_instructions}}</td>
+        <td>{{org.notes}}</td>
+        <td>{{org.minimum_count}}</td>
+        <td>{{org.maximum_count}}</td>
+        <td>{{org.tools}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

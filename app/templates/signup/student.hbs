@@ -1,2 +1,27 @@
-<p color='red'>Student registration is not available at this time.</p>
-{{outlet}}
+<div class="row">
+  <h5> Click a project to sign up for it. </h5><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Instructions</th>
+        <th>Max Volunteers</th>
+        <th>Tools required</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.organizations as |org|}}
+        <tr {{action "update" org}}>
+          <td>{{org.name}}</td>
+          <td>{{org.address}}</td>
+          <td>{{org.description}}</td>
+          <td>{{org.special_instructions}}</td>
+          <td>{{org.maximum_count}}</td>
+          <td>{{org.tools}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
