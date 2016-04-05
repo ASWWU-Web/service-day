@@ -1,5 +1,23 @@
 <div class="row">
-  <h5> Click a project to sign up for it. </h5><br>
+  {{#each model.student as |stu|}}
+      <h2>Hey there {{stu.name}}</h2><br>
+      <h5> Tell us a bit about yourself.</h5>
+      Name:
+      {{input type='text' value=stu.name class='form-control'}}
+      Phone:
+      {{input type='phone' value=stu.phone class='form-control'}}
+      T-shirt size:
+      {{input type='text' value=stu.tShirt class='form-control'}}
+      College/School you attend:
+      {{input type='text' value=stu.school class='form-control'}}
+      <p id='success-text' class="text-success"></p>
+      <button class="btn btn-success" {{action 'save' stu}}>Save</button>
+      <br><br>
+    <h5> Click a project to sign up for it. </h5><br>
+    {{#unless stu.projectID}}
+      <p class="text-danger"> You aren't signed up for a project.</p>
+    {{/unless}}
+  {{/each}}
   <table class="table">
     <thead>
       <tr>
@@ -7,20 +25,30 @@
         <th>Address</th>
         <th>Description</th>
         <th>Instructions</th>
-        <th>Max Volunteers</th>
-        <th>Tools required</th>
+        <th>Volunteers</th>
       </tr>
     </thead>
     <tbody>
-      {{#each model.organizations as |org|}}
-        <tr {{action "update" org}}>
-          <td>{{org.name}}</td>
-          <td>{{org.address}}</td>
-          <td>{{org.description}}</td>
-          <td>{{org.special_instructions}}</td>
-          <td>{{org.maximum_count}}</td>
-          <td>{{org.tools}}</td>
-        </tr>
+      {{#each model.student as |stu|}}
+        {{#each model.organizations as |org|}}
+          {{#if (eq stu.projectID org.id)}}
+            <tr {{action "update" org stu}} class="bg-primary">
+              <td>{{org.name}}</td>
+              <td>{{org.address}}</td>
+              <td>{{org.description}}</td>
+              <td>{{org.special_instructions}}</td>
+              <td>({{org.count}}/{{org.maximum_count}})</td>
+            </tr>
+          {{else}}
+            <tr {{action "update" org stu}}>
+              <td>{{org.name}}</td>
+              <td>{{org.address}}</td>
+              <td>{{org.description}}</td>
+              <td>{{org.special_instructions}}</td>
+              <td>({{org.count}}/{{org.maximum_count}})</td>
+            </tr>
+          {{/if}}
+        {{/each}}
       {{/each}}
     </tbody>
   </table>

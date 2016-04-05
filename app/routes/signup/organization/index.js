@@ -23,7 +23,7 @@ export default Ember.Route.extend({
       var pass = this.get('session.org_pass') || prompt("Enter organization code (this should have been emailed to you)");
       if (pass === ENV.org_pass) {
         var self = this;
-        var org = this.get('store').createRecord('organization',{name: "New project "+Math.floor(Math.random()*100)});
+        var org = this.get('store').createRecord('organization',{name: "New project "+Math.floor(Math.random()*100), count:0});
         org.owner = this.get('session.currentUser.email');
         org.save().then(function() {
           self.transitionTo("signup.organization.edit", org);

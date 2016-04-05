@@ -14,5 +14,6 @@ export default DS.Model.extend({
   notes: DS.attr('string'),
   minimum_count: DS.attr('number'),
   maximum_count: DS.attr('number'),
-  tools: DS.attr('string')
+  tools: DS.attr('string'),
+  count: DS.attr('number')
 });
