@@ -8,11 +8,13 @@
       {{input type='phone' value=stu.phone class='form-control'}}
       T-shirt size:
       {{input type='text' value=stu.tShirt class='form-control'}}
-      College/School you attend:
+      School you attend:
       <br>
       {{radio-button value='WWU' checked=stu.school}} Walla Walla University<br>
       {{radio-button value='WWCC' checked=stu.school}} Walla Walla Community College<br>
       {{radio-button value='Whitman' checked=stu.school}} Whitman College<br>
+      <br>
+      <p>Would you like to {{#link-to 'signup.facilitator'}}be a facilitator{{/link-to}} for service day?</p>
       <p id='success-text' class="text-success"></p>
       <button class="btn btn-success" {{action 'save' stu}}>Save</button>
       <br><br>
@@ -42,7 +44,7 @@
               <td>{{org.special_instructions}}</td>
               <td>({{org.count}}/{{org.maximum_count}})</td>
             </tr>
-          {{else if (eq org.maximum_count org.count)}}
+          {{else if (gte org.count org.maximum_count)}}
 
           {{else}}
             <tr {{action "update" org stu}}>

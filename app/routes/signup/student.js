@@ -30,12 +30,8 @@ export default Ember.Route.extend({
             "email": self.get('email')
           });
           stu.save();
-          resolve(stu);
+          resolve(data);
         } else {
-          data.forEach(function(obj) {
-            Ember.$('#'+ obj.get('projectID')).addClass("bg-primary");
-          });
-
           resolve(data);
         }
       });
@@ -59,7 +55,7 @@ export default Ember.Route.extend({
       var oldProject = stu.get('projectID');
       var newProject = project.get('id');
       var ref = new Firebase(ENV.firebase + "organizations");
-      
+
       if(oldProject){
         //decriment old project.
         var old;
