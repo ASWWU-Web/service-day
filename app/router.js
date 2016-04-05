@@ -13,6 +13,7 @@ Router.map(function() {
       this.route('edit', {'path': '/edit/:id'});
     });
     this.route('student');
+    this.route('facilitator');
   });
   this.route('admin');
   this.route('resetPassword');

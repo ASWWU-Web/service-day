@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     if (this.get('session.isAuthenticated')) {
       this.set('email',this.get('session.currentUser.email'));
     }else{
-      this.transitionTo('home');
+      this.transitionTo('signup');
     }
   },
   model() {
