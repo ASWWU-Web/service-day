@@ -39,6 +39,8 @@
               <td>{{org.special_instructions}}</td>
               <td>({{org.count}}/{{org.maximum_count}})</td>
             </tr>
+          {{else if (eq org.maximum_count org.count)}}
+          
           {{else}}
             <tr {{action "update" org stu}}>
               <td>{{org.name}}</td>

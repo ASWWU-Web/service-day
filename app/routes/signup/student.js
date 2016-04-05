@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../../config/environment';
 
 export default Ember.Route.extend({
   email: "",
@@ -55,9 +56,28 @@ export default Ember.Route.extend({
       });
     },
     update(project,stu) {
+      var oldProject = stu.get('projectID');
+      var newProject = project.get('id');
+      var ref = new Firebase(ENV.firebase + "organizations");
+      
+      if(oldProject){
+        //decriment old project.
+        var old;
+        ref.child(oldProject).once('value', function(dataSnapshot) {
+          old = dataSnapshot.val().count - 1;
+        });
+        ref.child(oldProject).update({"count":old});
+      }
+
+      //Incriment new Project
+      var nowNew;
+      ref.child(newProject).once('value', function(dataSnapshot) {
+        nowNew = dataSnapshot.val().count + 1;
+      });
+      ref.child(newProject).update({"count":nowNew});
+
+      //Write to store and save
       stu.set("projectID", project.get('id'));
-      //Ember.$(".bg-primary").removeClass("bg-primary");
-      //Ember.$('#'+ project.get('id')).addClass("bg-primary");
       stu.save();
     },
     signUp(project) {
