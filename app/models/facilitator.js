@@ -4,5 +4,6 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   phone: DS.attr('string'),
   name: DS.attr('string'),
-  school: DS.attr('string')
+  school: DS.attr('string'),
+  projectID: DS.attr('string')
 });

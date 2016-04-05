@@ -38,11 +38,12 @@ export default Ember.Route.extend({
     });
     return Ember.RSVP.hash({
       facilitator: store.findAll("facilitator"),
+      organization: store.findAll('organization'),
       "student": student,
     });
   },
   actions:{
-    check(stu){
+    school(stu){
       var email = stu.get('email');
       var phone = stu.get('phone');
       var name = stu.get('name');
@@ -79,7 +80,44 @@ export default Ember.Route.extend({
       }else {
         Ember.$("#error").text("You haven't finished your student signup yet.");
       }
+    },
+    project(stu){
+      var email = stu.get('email');
+      var phone = stu.get('phone');
+      var name = stu.get('name');
+      var school = stu.get('school');
+      var projectID = stu.get('projectID');
+      if(email && phone && name && school && projectID) {
+        var ref = new Firebase(ENV.firebase + "facilitators/");
+        var data;
+        ref.once('value',function(dataSnapshot){
+          data = dataSnapshot.val();
+        });
+        var isApplicable = true;
+        if(data){
+          $.each(data,function(key,value){
+            if(value.projectID == projectID){
+              isApplicable = false;
+            }
+          });
+        }
+        if(isApplicable){
+          var fac = this.get('store').createRecord("facilitator",{
+            "email": email,
+            "phone": phone,
+            "name": name,
+            "projectID": projectID
+          });
+          stu.set('isFacilitator',true);
+          stu.save();
+          fac.save();
+        }else {
+          Ember.$("#error").text("A facilitator from your project has already signed up.");
+        }
 
+      }else {
+        Ember.$("#error").text("You haven't finished your student signup yet.");
+      }
     }
   }
 });

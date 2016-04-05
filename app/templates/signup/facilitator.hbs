@@ -9,9 +9,12 @@
     <div class="card col-sm-12 col-m-4">
     <div class="card-block">
       <h4 class="card-title">{{fac.name}}</h4>
-      <p class="card-text">Facilitator for {{fac.school}}<br>
-        <a href="mailto:"{{fac.email}}>{{fac.email}}</a>
-      </p>
+      {{#if fac.school}}
+        <p class="card-text">School facilitator for {{fac.school}}<br></p>
+      {{else}}
+        <p class="card-text">Project facilitator for {{fac.projectID}}<br></p>
+      {{/if}}
+      <a href="mailto:"{{fac.email}}>{{fac.email}}</a>
     </div>
     </div>
     {{else}}
@@ -20,6 +23,7 @@
 </div>
   <br>
   {{#each model.student as |stu|}}
-  <button class="btn btn-danger" {{action "check" stu}}>I understand and wish to continue</button>
+  <button class="btn btn-danger" {{action "school" stu}}>I want to be a facilitator for my school.</button><br><br>
+  <button class="btn btn-danger" {{action "project" stu}}>I want to be a facilitator for my project.</button>
   {{/each}}
   <p id="error" class="text-danger"></p>
