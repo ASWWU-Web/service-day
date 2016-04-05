@@ -39,5 +39,8 @@
     "ember-truth-helpers": "1.2.0",
     "emberfire": "1.6.5",
     "torii": "0.6.1"
+  },
+  "dependencies": {
+    "ember-radio-buttons": "^4.0.1"
   }
 }

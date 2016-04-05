@@ -9,7 +9,10 @@
       T-shirt size:
       {{input type='text' value=stu.tShirt class='form-control'}}
       College/School you attend:
-      {{input type='text' value=stu.school class='form-control'}}
+      <br>
+      {{radio-button value='WWU' checked=stu.school}} Walla Walla University<br>
+      {{radio-button value='WWCC' checked=stu.school}} Walla Walla Community College<br>
+      {{radio-button value='Whitman' checked=stu.school}} Whitman College<br>
       <p id='success-text' class="text-success"></p>
       <button class="btn btn-success" {{action 'save' stu}}>Save</button>
       <br><br>
@@ -40,7 +43,7 @@
               <td>({{org.count}}/{{org.maximum_count}})</td>
             </tr>
           {{else if (eq org.maximum_count org.count)}}
-          
+
           {{else}}
             <tr {{action "update" org stu}}>
               <td>{{org.name}}</td>
