@@ -6,7 +6,8 @@ export default Ember.Route.extend({
     var store = this.get("store");
     return Ember.RSVP.hash({
       instructions: store.findAll("instructions"),
-      organizations: store.findAll("organization")
+      organizations: store.findAll("organization"),
+      students: store.findAll("student")
     });
   },
   setupController(controller, model) {

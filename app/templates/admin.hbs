@@ -17,7 +17,6 @@
       <li>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</li>
     {{/each}}
   </ul>
-
 </div>
 <table class="table">
   <thead>
@@ -33,6 +32,7 @@
       <th>Notes for Administration</th>
       <th>Min Number of Volunteers</th>
       <th>Max Number of Volunteers</th>
+      <th>Current Number of Volunteers</th>
       <th>Tools required</th>
     </tr>
   </thead>
@@ -50,7 +50,35 @@
         <td>{{org.notes}}</td>
         <td>{{org.minimum_count}}</td>
         <td>{{org.maximum_count}}</td>
+        <td>{{org.count}}</td>
         <td>{{org.tools}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+<h1>Students</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>projectID</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>tShirt</th>
+      <th>school</th>
+      <th>isFacilitator</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model.students as |stu|}}
+      <tr>
+        <td>{{stu.name}}</td>
+        <td>{{stu.projectID}}</td>
+        <td>{{stu.email}}</td>
+        <td>{{stu.phone}}</td>
+        <td>{{stu.tShirt}}</td>
+        <td>{{stu.school}}</td>
+        <td>{{stu.isFacilitator}}</td>
       </tr>
     {{/each}}
   </tbody>

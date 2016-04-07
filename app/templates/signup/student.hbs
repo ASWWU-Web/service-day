@@ -1,19 +1,26 @@
 <div class="row">
   {{#each model.student as |stu|}}
       <h2>Hey there {{stu.name}}</h2><br>
+      <p>{{instructions.text}}</p>
       <h5> Tell us a bit about yourself.</h5>
-      Name:
-      {{input type='text' value=stu.name class='form-control'}}
-      Phone:
-      {{input type='phone' value=stu.phone class='form-control'}}
-      T-shirt size:
-      {{input type='text' value=stu.tShirt class='form-control'}}
-      School you attend:
-      <br>
-      {{radio-button value='WWU' checked=stu.school}} Walla Walla University<br>
-      {{radio-button value='WWCC' checked=stu.school}} Walla Walla Community College<br>
-      {{radio-button value='Whitman' checked=stu.school}} Whitman College<br>
-      <br>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">Name: {{input type='text' value=stu.name class='form-control'}}</div>
+        <div class="col-xs-12 col-md-6">Phone:
+          {{input type='phone' value=stu.phone class='form-control'}}
+        </div>
+        <div class="col-xs-12 col-md-6">T-shirt size:
+          {{input type='text' value=stu.tShirt class='form-control'}}
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <br>
+          School you attend:
+          <br>
+          {{radio-button value='WWU' checked=stu.school}} Walla Walla University<br>
+          {{radio-button value='WWCC' checked=stu.school}} Walla Walla Community College<br>
+          {{radio-button value='Whitman' checked=stu.school}} Whitman College<br>
+          <br>
+        </div>
+      </div>
       <p>Would you like to {{#link-to 'signup.facilitator'}}be a facilitator{{/link-to}} for service day?</p>
       <p id='success-text' class="text-success"></p>
       <button class="btn btn-success" {{action 'save' stu}}>Save</button>

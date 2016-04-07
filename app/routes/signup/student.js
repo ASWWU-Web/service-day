@@ -42,6 +42,16 @@ export default Ember.Route.extend({
       isEditing: this.get("isEditing")
     });
   },
+  setupController(controller, model) {
+    controller.set("model", model);
+    this.get("store").findAll("instructions").then(function(ins) {
+      ins.forEach(function(i) {
+        if (i.get('name') === "student") {
+          controller.set("instructions", i);
+        }
+      });
+    });
+  },
   actions: {
     save(student) {
       student.save().then(function(){

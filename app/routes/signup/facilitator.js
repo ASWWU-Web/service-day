@@ -42,6 +42,16 @@ export default Ember.Route.extend({
       "student": student,
     });
   },
+  setupController(controller, model) {
+    controller.set("model", model);
+    this.get("store").findAll("instructions").then(function(ins) {
+      ins.forEach(function(i) {
+        if (i.get('name') === "facilitator") {
+          controller.set("instructions", i);
+        }
+      });
+    });
+  },
   actions:{
     school(stu){
       var email = stu.get('email');
