@@ -10,10 +10,9 @@ export default Ember.Route.extend({
   },
   actions: {
     submit(){
-      console.log("submit()");
-      if(this.get('isRegister'))
+      if(this.get('isRegister')){
         this.send('register');
-      else {
+      } else {
         this.send('signIn');
       }
     },
@@ -39,7 +38,7 @@ export default Ember.Route.extend({
         password: password
       }, function(error, userData) {
         if (error) {
-          //This makes it so that the user doens't have to click "login" 
+          //This makes it so that the user doens't have to click "login"
           if(error == "Error: The specified email address is already in use."){
             self.send("signIn");
           }else {

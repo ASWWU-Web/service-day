@@ -67,7 +67,7 @@ export default Ember.Route.extend({
         });
         var isApplicable = true;
         if(data){
-          $.each(data,function(key,value){
+          Ember.$.each(data,function(key,value){
             if(value.school == school){
               isApplicable = false;
             }
@@ -105,7 +105,7 @@ export default Ember.Route.extend({
         });
         var isApplicable = true;
         if(data){
-          $.each(data,function(key,value){
+          Ember.$.each(data,function(key,value){
             if(value.projectID == projectID){
               isApplicable = false;
             }
