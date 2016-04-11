@@ -54,11 +54,25 @@ export default Ember.Route.extend({
   },
   actions: {
     save(student) {
-      student.save().then(function(){
-        Ember.$('#success-text').text("Saved!");
+      var name = student.get('name');
+      var phone = student.get('phone');
+      var tShirt = student.get('tShirt');
+      var school = student.get('school');
+      var didPass = true;
+      if(!(name && phone && tShirt && school)){
+        Ember.$("#fail-text").text("Please fill in all the above feilds.");
         window.setTimeout(function() {
-          Ember.$('#success-text').text("");
-        }, 2000);
+          Ember.$('#fail-text').text("");
+        }, 3000);
+        didPass = false;
+      }
+      student.save().then(function(){
+        if(didPass){
+          Ember.$('#success-text').text("Saved!");
+          window.setTimeout(function() {
+            Ember.$('#success-text').text("");
+          }, 2000);
+        }
       });
     },
     update(project,stu) {

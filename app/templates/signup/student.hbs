@@ -1,8 +1,8 @@
 <div class="row">
   {{#each model.student as |stu|}}
       <h2>Hey there {{stu.name}}</h2><br>
-      <p>{{instructions.text}}</p>
-      <h5> Tell us a bit about yourself.</h5>
+      <h5>{{instructions.text}}</h5>
+      <small class="text-muted">All fields are required.</small>
       <div class="row">
         <div class="col-xs-12 col-md-6">Name: {{input type='text' value=stu.name class='form-control'}}</div>
         <div class="col-xs-12 col-md-6">Phone:
@@ -23,6 +23,7 @@
       </div>
       <p>Would you like to {{#link-to 'signup.facilitator'}}be a facilitator{{/link-to}} for service day?</p>
       <p id='success-text' class="text-success"></p>
+      <p id='fail-text' class="text-danger"></p>
       <button class="btn btn-success" {{action 'save' stu}}>Save</button>
       <br><br>
     <h5> Click a project to sign up for it. </h5><br>
