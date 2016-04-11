@@ -10,7 +10,7 @@
       {{#if fac.school}}
         <p class="card-text">School facilitator for {{fac.school}}<br></p>
       {{else}}
-        <p class="card-text">Project facilitator for {{fac.projectID}}<br></p>
+        <p class="card-text">Project facilitator for {{id-to-name studentID=fac.projectID}}<br></p>
       {{/if}}
       <a href="mailto:"{{fac.email}}>{{fac.email}}</a>
     </div>

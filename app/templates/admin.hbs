@@ -73,7 +73,7 @@
     {{#each model.students as |stu|}}
       <tr>
         <td>{{stu.name}}</td>
-        <td>{{stu.projectID}}</td>
+        <td>{{id-to-name studentID=stu.projectID}}</td>
         <td>{{stu.email}}</td>
         <td>{{stu.phone}}</td>
         <td>{{stu.tShirt}}</td>
