@@ -25,6 +25,50 @@ export default Ember.Route.extend({
           Ember.$('#success-text-'+ins.get("name")).text("");
         }, 2000);
       });
+    },
+    csv(record) {
+      var ref;
+      try{
+        ref = new Firebase(ENV.firebase + record);
+      }
+      catch(er){
+        alert("There was an Error" + er);
+        return;
+      }
+      var recordData;
+      ref.once("value", (data) => {
+        recordData = data.val();
+      });
+      var data = [];
+      var regex = /[\n"/<>']/g;
+      Ember.$.each(recordData, (key,value) => {
+        var subData = "";
+        Ember.$.each(value,(k,v) => {
+          try{
+            subData +='"' + v.replace(regex,"") + '"' + ",";
+          }
+          catch(er){
+            subData +='"' + v + '",';
+          }
+        });
+
+        data.push(subData);
+      });
+      var csvContent = data.join('\n');
+      try {
+        var a = document.createElement('a');
+        a.href = 'data:attachment/xml,' +  encodeURIComponent(csvContent);
+        a.target = '_blank';
+        a.download = record + '.xml';
+
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+      catch(er){
+        alert("There was an error. Try using Firefox or Chome.\n" + er);
+      }
+
     }
   }
 });
