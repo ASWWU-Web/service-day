@@ -39,21 +39,22 @@ export default Ember.Route.extend({
       ref.once("value", (data) => {
         recordData = data.val();
       });
-      var data = [];
-      var regex = /[\n"/<>']/g;
+      var data = ['<records>'];
+      var regex = /[\n"/<>'&]/g;
       Ember.$.each(recordData, (key,value) => {
-        var subData = "";
+        var subData = "<record>";
         Ember.$.each(value,(k,v) => {
           try{
-            subData +='"' + v.replace(regex,"") + '"' + ",";
+            subData += "<" + k + ">" + v.replace(regex,"") + "</" + k + ">\n";
           }
           catch(er){
-            subData +='"' + v + '",';
+            subData += "<" + k + ">" + v + "</" + k + ">\n";
           }
         });
-
+        subData += "</record>";
         data.push(subData);
       });
+      data.push('</records>');
       var csvContent = data.join('\n');
       try {
         var a = document.createElement('a');
