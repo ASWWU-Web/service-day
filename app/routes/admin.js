@@ -96,6 +96,7 @@ export default Ember.Route.extend({
         });
 
         //download file to client using HTML5
+        data.unshift(keys);
         var csvContent = data.join('\n');
         try {
           var a = document.createElement('a');
