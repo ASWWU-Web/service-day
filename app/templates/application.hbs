@@ -1,26 +1,48 @@
 <!-- Put all of the header/general layout code here -->
 <!-- Index.html is auto-generated, so this file acts as THE main file -->
-
-<nav class="navbar navbar-light bg-faded">
-  <div class="container-fluid">
-    {{#link-to "home" }}<img class="pull-xs-left" style="padding:5px; height: 2.7rem;" src="./wwu-logo.svg"/>{{/link-to}}
-    {{#link-to "home" class="navbar-brand"}}<div style="padding-left:1rem;">Service Day Signups</div>{{/link-to}}
-    <ul class="nav navbar-nav pull-xs-right">
+<div class="collapse" id="mobileNav">
+  <div class="bg-inverse p-a-1">
+    <ul class="nav nav-pills nav-stacked">
       {{#if session.isAuthenticated}}
         {{#if isAdmin}}
-          <li class="nav-item">
-            {{link-to "Admin" "admin" class="btn btn-danger-outline"}}
+          <li class="nav-item text-danger">
+            {{link-to "Admin" "admin" class="nav-link"}}
           </li>
         {{/if}}
         <li class="nav-item">
-          {{link-to "Account" "account" class="btn btn-primary-outline"}}
+          {{link-to "Account" "account" class="nav-link"}}
         </li>
         <li class="nav-item">
-          <button class="btn btn-primary-outline" {{action "signOut"}}>Log Out</button>
+          <a class="nav-link text-danger" {{action "signOut"}}>Log Out</a>
         </li>
       {{/if}}
     </ul>
+  </div>
+</div>
+<nav class="navbar navbar-light bg-faded">
+  <div class="container-fluid">
+    {{#link-to "home" }}<img class="pull-xs-left hidden-sm-down" style="padding:5px; height: 2.7rem; margin-right:1em;" src="./wwu-logo.svg"/>{{/link-to}}
+    {{#link-to "home" class="navbar-brand"}}Service Day Signups{{/link-to}}
+    {{#if session.isAuthenticated}}
+      <ul class="nav navbar-nav pull-xs-right hidden-sm-down">
 
+          {{#if isAdmin}}
+            <li class="nav-item">
+              {{link-to "Admin" "admin" class="btn btn-danger-outline"}}
+            </li>
+          {{/if}}
+          <li class="nav-item">
+            {{link-to "Account" "account" class="btn btn-primary-outline"}}
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary-outline" {{action "signOut"}}>Log Out</button>
+          </li>
+
+      </ul>
+      <button class="navbar-toggler hidden-md-up  pull-xs-right" type="button" data-toggle="collapse" data-target="#mobileNav">
+        &#9776;
+      </button>
+    {{/if}}
   </div>
 </nav>
 <div class="container">
