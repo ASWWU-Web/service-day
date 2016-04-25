@@ -82,11 +82,14 @@ export default Ember.Route.extend({
 
       if(oldProject){
         //decriment old project.
-        var old;
         ref.child(oldProject).once('value', function(dataSnapshot) {
-          old = dataSnapshot.val().count - 1;
+          if(dataSnapshot.val() == null){
+            return;
+          }
+           var old = dataSnapshot.val().count - 1;
+          ref.child(oldProject).update({"count":old});
         });
-        ref.child(oldProject).update({"count":old});
+
       }
 
       //Incriment new Project
