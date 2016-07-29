@@ -1,13 +1,15 @@
 
 <div class="row">
-  {{#link-to "signup.organization" class="btn btn-primary"}}Back To Your Projects{{/link-to}}
-  <br><br>
-  <form {{action "save" on="submit"}}>
-    {{organization-form org=model}}
-    <p id="success-text" style="color: green"></p>
+  <div class="col-xs-12">
     {{#link-to "signup.organization" class="btn btn-primary"}}Back To Your Projects{{/link-to}}
-    <button type="submit" class="btn btn-success">Save!</button>
-    <button type="submit" class="btn btn-danger btn-sm" {{action "destroy"}}>Delete</button>
-  </form>
-  <br><br>
+    <br><br>
+    <form {{action "save" on="submit"}}>
+      {{organization-form org=model}}
+      <p id="success-text" style="color: green"></p>
+      {{#link-to "signup.organization" class="btn btn-primary"}}Back To Your Projects{{/link-to}}
+      <button type="submit" class="btn btn-success">Save!</button>
+      <button type="submit" class="btn btn-danger btn-sm" {{action "destroy"}}>Delete</button>
+    </form>
+    <br><br>
+  </div>
 </div>

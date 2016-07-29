@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'service-day',
     environment: environment,
-    firebase: 'https://serviceday.firebaseio.com/',
+    firebase: 'https://serviceday.firebaseio.com/Fall2016/',
     torii: {
       sessionServiceName: 'session'
     },
@@ -31,6 +31,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    //This is the test database.
+    ENV.firebase = 'https://test-serviceday.firebaseio.com/Fall2016/';
   }
 
   if (environment === 'test') {
