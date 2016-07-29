@@ -6,7 +6,7 @@
   {{#each model.instructions as |ins|}}
     <br>
     <h5>{{ins.name}}s</h5>
-    {{textarea value=ins.text class="form-control"}}
+    {{textarea value=ins.text class="form-control" rows="3"}}
     <p id={{concat "success-text-" ins.name}}></p>
     <button class="btn btn-success" {{action "save" ins}}>Save</button>
   {{/each}}
