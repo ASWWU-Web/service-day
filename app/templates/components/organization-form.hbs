@@ -1,39 +1,39 @@
 <p>{{org.count}} out of {{org.maximum_count}} people have signed up for your project.</p>
 <fieldset class='form-group'>
 	<label for='name'> Project Name:</label>
-	{{input type='text' value=org.name class='form-control' id='name'}}
+	{{input type='text' value=org.name class='form-control' id='name' required='true'}}
 </fieldset>
 
 <fieldset class='form-group'>
 	<label for='contact_name'> Contact Name: </label>
-	{{input type='text' value=org.contact_name class='form-control' id='contact_name'}}
+	{{input type='text' value=org.contact_name class='form-control' id='contact_name' required='true'}}
 </fieldset>
 <fieldset class='form-group'>
 	<label for='contact_phone'> Contact Phone: </label>
-	{{input type='tel' value=org.contact_phone class='form-control' id='contact_phone'}}
+	{{input type='tel' value=org.contact_phone class='form-control' id='contact_phone' required='true'}}
 </fieldset>
 <fieldset class='form-group'>
 	<label for='contact_email'> Contact Email: </label>
-	{{input type='email' value=org.contact_email class='form-control' id='contact_email'}}
+	{{input type='email' value=org.contact_email class='form-control' id='contact_email' required='true'}}
 </fieldset>
 <fieldset class='form-group'>
 	<label for='person_on_site'> Person who will be on site during the project: </label>
-	{{input type='text' value=org.person_on_site class='form-control' id='person_on_site'}}
+	{{input type='text' value=org.person_on_site class='form-control' id='person_on_site' required='true'}}
 </fieldset>
 
 <fieldset class='form-group'>
 	<label for='person_on_site_contact'> Contact information of that person: </label>
-	{{input type='text' value=org.person_on_site_contact class='form-control' id='person_on_site_contact'}}
+	{{input type='text' value=org.person_on_site_contact class='form-control' id='person_on_site_contact' required='true'}}
 </fieldset>
 
 <fieldset class='form-group'>
 	<label for='address'> Address:</label>
-	{{input type='text' value=org.address class='form-control' id='address'}}
+	{{input type='text' value=org.address class='form-control' id='address' required='true'}}
 </fieldset>
 
 <fieldset class='form-group'>
 	<label for='description'> Description: </label>
-	{{textarea type='text' value=org.description class='form-control' id='description'}}
+	{{textarea type='text' value=org.description class='form-control' id='description' required='true'}}
 </fieldset>
 <fieldset class='form-group'>
 	<label for='special_instructions'> Special Instructions: </label>
@@ -45,11 +45,11 @@
 </fieldset>
 <fieldset class='form-group'>
 	<label for='minimum_count'> Minimum Number of Volunteers: </label>
-	{{input type='number' value=org.minimum_count class='form-control' id='minimum_count'}}
+	{{input type='number' value=org.minimum_count class='form-control' id='minimum_count' required='true'}}
 </fieldset>
 <fieldset class='form-group'>
 	<label for='maximum_count'> Maximum Number of Volunteers: </label>
-	{{input type='number' value=org.maximum_count class='form-control' id='maximum_count'}}
+	{{input type='number' value=org.maximum_count class='form-control' id='maximum_count' required='true'}}
 </fieldset>
 <fieldset class='form-group'>
 	<label for='tools'> Tools required (if any): </label>

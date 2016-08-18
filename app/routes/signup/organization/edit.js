@@ -8,6 +8,7 @@ export default Ember.Route.extend({
     save() {
       this.modelFor(this.routeName).save().then(function() {
         Ember.$('#success-text').text("Success!");
+        Ember.$('#successModal').modal('show');
         window.setTimeout(function() {
           Ember.$('#success-text').text("");
         }, 2000);
