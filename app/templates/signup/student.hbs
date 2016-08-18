@@ -1,16 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
     {{#each model.student as |stu|}}
-      <form>
+      <form {{action "save" stu on="submit"}}>
         <h2>Hey there {{stu.name}}</h2>
         <br>
         <p>{{instructions.text}}</p>
 
         <small class="text-muted">All fields are required.</small>
         <div class="row">
-          <div class="col-xs-12 col-md-6">Name: {{input type='text' value=stu.name class='form-control'}}</div>
-          <div class="col-xs-12 col-md-6">Phone: {{input type='phone' value=stu.phone class='form-control'}}
-          </div>
+          <div class="col-xs-12 col-md-6">Name: {{input type='text' value=stu.name class='form-control' required='true'}}</div>
+          <div class="col-xs-12 col-md-6">Phone: {{input type='phone' value=stu.phone class='form-control' required='true'}}</div>
           <div class="col-xs-12 col-md-6">
             <br> T-shirt size:
             <br>
@@ -84,14 +83,12 @@
             {{/each}}
           </tbody>
         </table>
+        <button type='submit' class="btn btn-success pull-md-right" {{action 'save' stu}}>Save</button>
+        <p id='success-text' class="text-success"></p>
+        <p id='fail-text' class="text-danger"></p>
       </form>
-      <button class="btn btn-success pull-md-right" {{action 'save' stu}}>Save</button>
-      <p id='success-text' class="text-success"></p>
-      <p id='fail-text' class="text-danger"></p>
-
     {{/each}}
     <div style='height:100px'>
-
     </div>
   </div>
 </div>
