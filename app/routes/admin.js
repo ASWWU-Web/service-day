@@ -62,10 +62,14 @@ export default Ember.Route.extend({
         //this is what the csv will be ordered by. (name is first)
         var keys = ["name"];
 
+        //Add RecordID
+        var currentID = 1;
+
+
         //go through all the record objects
         Ember.$.each(recordData, function(key,value) {
           //put any data whose key is already known into subdata[]
-          var subData = [];
+          var subData = [currentID];
           for (var i = 0; i < keys.length; i++){
             var k = keys[i];
             if (k in value){
@@ -93,10 +97,13 @@ export default Ember.Route.extend({
             }
           });
           data.push(subData.join(','));
+          currentID++;
         });
-
-        //download file to client using HTML5
+        //Add ID to keys array.(so that everything is properly labled.)
+        keys.unshift('ID');
+        //Add keys to begining of csvArray.
         data.unshift(keys);
+        //download file to client using HTML5
         var csvContent = data.join('\n');
         try {
           var a = document.createElement('a');
