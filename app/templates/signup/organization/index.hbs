@@ -1,15 +1,16 @@
-
-<div class="row">
-  <div class="col-xs-12">
-    <h3>Instructions</h3>
-    <p>{{instructions.text}}</p>
-    <h3>Here are the projects you have created so far:</h3>
-    {{#each model as |org|}}
-      {{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}<br>
-      {{else}}
-      <div style="color:red;">You haven't made a project yet. Click "Create New" to make a new project. </div>
-    {{/each}}
-    <br><br>
-    <button class="btn btn-success" {{action "createNew"}}>Create New</button>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Instructions</h3>
+      <p>{{instructions.text}}</p>
+      <h3>Here are the projects you have created so far:</h3>
+      {{#each model as |org|}}
+        {{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}<br>
+        {{else}}
+        <div style="color:red;">You haven't made a project yet. Click "Create New" to make a new project. </div>
+      {{/each}}
+      <br><br>
+      <button class="btn btn-success" {{action "createNew"}}>Create New</button>
+    </div>
   </div>
 </div>

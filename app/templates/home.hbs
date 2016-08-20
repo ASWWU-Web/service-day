@@ -1,45 +1,46 @@
+<div class="container">
+  <div class="row">
+    <h2 class="text-xs-center">Welcome to Service Day SignUps</h2>
 
-<div class="row">
-  <h2 class="text-xs-center">Welcome to Service Day SignUps</h2>
+    {{#if session.isAuthenticated}}
 
-  {{#if session.isAuthenticated}}
+      <h4>Welcome Back {{session.currentUser.email}}</h4>
+      <button class="btn btn-primary" {{action "signOut"}}>Log Out</button>
+      <br><br>
+      {{#link-to "signup"}}<h3>Get started</h3>{{/link-to}}
 
-    <h4>Welcome Back {{session.currentUser.email}}</h4>
-    <button class="btn btn-primary" {{action "signOut"}}>Log Out</button>
-    <br><br>
-    {{#link-to "signup"}}<h3>Get started</h3>{{/link-to}}
+    {{else}}
 
-  {{else}}
-
-    <h4 class="text-xs-center">
-      <a href='' {{action "hideRegister"}}>Log in </a>
-      <i>or </i>
-      <a href='' {{action "showRegister"}}>Register an account </a>
-      to continue
-    </h4>
-    <br>
-    <div class="col-xs-12 align-center">
-      <div class="row">
-        <label class="col-xs-12 col-md-6 col-md-offset-3">
-          Email: <input name="email" class="form-control">
-        </label>
-        <label class="col-xs-12 col-md-6 col-md-offset-3">
-          Password: {{input name="password" type="password" class="form-control" insert-newline='submit'}}
-        </label>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3">
-          {{link-to "Forgot Password?" "resetPassword"}}
-          <p id="error-text" style="color: red"></p>
-          <div id="registerStuff">
-            <button class="btn btn-primary" {{action "register"}}>Register</button>
-          </div>
-          <div class="hidden-xl-down">
-            <button class="btn btn-primary" {{action "signIn"}}>Log in</button>
+      <h4 class="text-xs-center">
+        <a href='' {{action "hideRegister"}}>Log in </a>
+        <i>or </i>
+        <a href='' {{action "showRegister"}}>Register an account </a>
+        to continue
+      </h4>
+      <br>
+      <div class="col-xs-12 align-center">
+        <div class="row">
+          <label class="col-xs-12 col-md-6 col-md-offset-3">
+            Email: <input name="email" class="form-control">
+          </label>
+          <label class="col-xs-12 col-md-6 col-md-offset-3">
+            Password: {{input name="password" type="password" class="form-control" insert-newline='submit'}}
+          </label>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-md-offset-3">
+            {{link-to "Forgot Password?" "resetPassword"}}
+            <p id="error-text" style="color: red"></p>
+            <div id="registerStuff">
+              <button class="btn btn-primary" {{action "register"}}>Register</button>
+            </div>
+            <div class="hidden-xl-down">
+              <button class="btn btn-primary" {{action "signIn"}}>Log in</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-  {{/if}}
+    {{/if}}
+  </div>
 </div>

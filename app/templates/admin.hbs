@@ -1,90 +1,111 @@
-
-<div class="row">
-  <h2>Admin Page</h2>
+<div class="container">
+  <h1>Admin Page</h1>
   <br>
   <h4>Update Instructions For:</h4>
-  {{#each model.instructions as |ins|}}
-    <br>
-    <h5>{{ins.name}}s</h5>
-    {{textarea value=ins.text class="form-control" rows="3"}}
-    <p id={{concat "success-text-" ins.name}}></p>
-    <button class="btn btn-success" {{action "save" ins}}>Save</button>
-  {{/each}}
-  <br><br>
-  <h4>All Projects (Click to Edit)</h4>
-  <ul>
-    {{#each model.organizations as |org|}}
-      <li>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</li>
+  <div class="row">
+    {{#each model.instructions as |ins|}}
+      <div class="col col-xs-12">
+        <h5>{{ins.name}}s</h5>
+        {{textarea value=ins.text class="form-control" rows="3"}}
+        <p id={{concat "success-text-" ins.name}}></p>
+        <button class="btn btn-success pull-xs-right" {{action "save" ins}}>Save</button>
+      </div>
     {{/each}}
-  </ul>
-  <button class="btn btn-success" {{action "csv" "organizations"}}>Export Projects</button>
-  <button class="btn btn-success" {{action "csv" "students"}}>Export Students</button>
-  <button class="btn btn-success" {{action "csv" "facilitators"}}>Export Facilitators</button>
+  </div>
+<br />
+  <div class="row">
+    <div class="col col-xs-12">
+      <h4>Export Data to CSV</h4>
+      <p>
+        <button class="btn btn-primary" {{action "csv" "organizations"}}>Export Projects</button>
+        <button class="btn btn-primary" {{action "csv" "students"}}>Export Students</button>
+        <button class="btn btn-primary" {{action "csv" "facilitators"}}>Export Facilitators</button>
+      </p>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col col-xs-12">
+      <h4>All Projects (Click to Edit)</h4>
+      <ul>
+        {{#each model.organizations as |org|}}
+          <li>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
 </div>
-<br>
-<h1>Projects</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Address</th>
-      <th>Contact Name</th>
-      <th>Contact Phone</th>
-      <th>Contact Email</th>
-      <th>Person on site</th>
-      <th>Description</th>
-      <th>Instructions</th>
-      <th>Notes for Administration</th>
-      <th>Min Number of Volunteers</th>
-      <th>Max Number of Volunteers</th>
-      <th>Current Number of Volunteers</th>
-      <th>Tools required</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model.organizations as |org|}}
-      <tr>
-        <td>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</td>
-        <td>{{org.address}}</td>
-        <td>{{org.contact_name}}</td>
-        <td>{{org.contact_phone}}</td>
-        <td>{{org.contact_email}}</td>
-        <td>{{org.person_on_site}}</td>
-        <td>{{org.description}}</td>
-        <td>{{org.special_instructions}}</td>
-        <td>{{org.notes}}</td>
-        <td>{{org.minimum_count}}</td>
-        <td>{{org.maximum_count}}</td>
-        <td>{{org.count}}</td>
-        <td>{{org.tools}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-<h1>Students</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>projectID</th>
-      <th>email</th>
-      <th>phone</th>
-      <th>tShirt</th>
-      <th>school</th>
-      <th>isFacilitator</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model.students as |stu|}}
-      <tr>
-        <td>{{stu.name}}</td>
-        <td>{{id-to-name studentID=stu.projectID}}</td>
-        <td>{{stu.email}}</td>
-        <td>{{stu.phone}}</td>
-        <td>{{stu.tShirt}}</td>
-        <td>{{stu.school}}</td>
-        <td>{{stu.isFacilitator}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-xs-12">
+      <br>
+      <h4>Projects</h4>
+      <small>Click table headers to reorganize data.</small>
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th {{action "sortBy" "name"}}>Project</th>
+            <th {{action "sortBy" "count"}}>Volunteers</th>
+            <th {{action "sortBy" "minimum_count"}}>Min No. of Volunteers</th>
+            <th {{action "sortBy" "address"}}>Address</th>
+            <th {{action "sortBy" "contact_name"}}>Contact Name</th>
+            <th {{action "sortBy" "contact_phone"}}>Contact Phone</th>
+            <th {{action "sortBy" "contact_email"}}>Contact Email</th>
+            <th {{action "sortBy" "person_on_site"}}>Person on site</th>
+            <th {{action "sortBy" "description"}}>Description</th>
+            <th {{action "sortBy" "special_instructions"}}>Instructions</th>
+            <th {{action "sortBy" "notes"}}>Notes for Administration</th>
+            <th {{action "sortBy" "tools"}}>Tools required</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each sortedOrganizations as |org|}}
+            <tr>
+              <td>{{#link-to "signup.organization.edit" org}}{{org.name}}{{/link-to}}</td>
+              <td>({{org.count}}/{{org.maximum_count}})</td>
+              <td>{{org.minimum_count}}</td>
+              <td>{{org.address}}</td>
+              <td>{{org.contact_name}}</td>
+              <td>{{org.contact_phone}}</td>
+              <td>{{org.contact_email}}</td>
+              <td>{{org.person_on_site}}</td>
+              <td>{{org.description}}</td>
+              <td>{{org.special_instructions}}</td>
+              <td>{{org.notes}}</td>
+              <td>{{org.tools}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <h4>Students</h4>
+      <small>Click table headers to reorganize data.</small>
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th {{action "sortBy" "name"}}>name</th>
+            <th {{action "sortBy" "projectID"}}>projectID</th>
+            <th {{action "sortBy" "email"}}>email</th>
+            <th {{action "sortBy" "phone"}}>phone</th>
+            <th {{action "sortBy" "tShirt"}}>tShirt</th>
+            <th {{action "sortBy" "school"}}>school</th>
+            <th {{action "sortBy" "isFacilitator"}}>isFacilitator</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each sortedStudents as |stu|}}
+            <tr>
+              <td>{{stu.name}}</td>
+              <td>{{id-to-name studentID=stu.projectID}}</td>
+              <td>{{stu.email}}</td>
+              <td>{{stu.phone}}</td>
+              <td>{{stu.tShirt}}</td>
+              <td>{{stu.school}}</td>
+              <td>{{stu.isFacilitator}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

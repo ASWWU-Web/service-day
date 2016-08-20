@@ -39,7 +39,8 @@ export default Ember.Route.extend({
       var projectID2name = function(id) {
         var responce;
         try {
-          ref.root().child("organizations/" + id).once('value', (data) => {
+          var project = ref.parent().child("organizations/"+ id);
+          project.once('value', (data) => {
             try {
               responce = data.val().name;
             } catch(er) {
@@ -49,10 +50,10 @@ export default Ember.Route.extend({
         } catch(er) {
           responce = "PROJECT REMOVED!";
         }
-
+        if(!responce || responce == undefined || responce == null)
+          responce = "PROJECT REMOVED!";
         return responce;
       };
-
       //get records from firebase
       ref.once("value", function(recordData) {
         recordData = recordData.val();

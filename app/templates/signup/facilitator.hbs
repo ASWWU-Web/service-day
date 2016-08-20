@@ -1,27 +1,30 @@
-<h2>Facilitator Signup</h2>
-<p>
-  {{instructions.text}}
-</p>
-<div class="row">
-  {{#each model.facilitator as |fac|}}
-    <div class="card col-sm-12 col-m-4">
-    <div class="card-block">
-      <h4 class="card-title">{{fac.name}}</h4>
-      {{#if fac.school}}
-        <p class="card-text">School facilitator for {{fac.school}}<br></p>
+<div class="container">
+  <h2>Facilitator Signup</h2>
+  <p>
+    {{instructions.text}}
+  </p>
+  <div class="row">
+    {{#each model.facilitator as |fac|}}
+      <div class="card col-sm-12 col-m-4">
+      <div class="card-block">
+        <h4 class="card-title">{{fac.name}}</h4>
+        {{#if fac.school}}
+          <p class="card-text">School facilitator for {{fac.school}}<br></p>
+        {{else}}
+          <p class="card-text">Project facilitator for {{id-to-name studentID=fac.projectID}}<br></p>
+        {{/if}}
+        <a href="mailto:"{{fac.email}}>{{fac.email}}</a>
+      </div>
+      </div>
       {{else}}
-        <p class="card-text">Project facilitator for {{id-to-name studentID=fac.projectID}}<br></p>
-      {{/if}}
-      <a href="mailto:"{{fac.email}}>{{fac.email}}</a>
-    </div>
-    </div>
-    {{else}}
-    <p class="text-danger">There aren't any facilitators signed up yet.</p>
-  {{/each}}
+      <p class="text-danger">There aren't any facilitators signed up yet.</p>
+    {{/each}}
+  </div>
+    <br>
+    {{#each model.student as |stu|}}
+    <button class="btn btn-danger" {{action "school" stu}}>I want to be a facilitator for my school.</button><br><br>
+    <button class="btn btn-danger" {{action "project" stu}}>I want to be a facilitator for my project.</button>
+    {{/each}}
+    <p id="error" class="text-danger"></p>
+
 </div>
-  <br>
-  {{#each model.student as |stu|}}
-  <button class="btn btn-danger" {{action "school" stu}}>I want to be a facilitator for my school.</button><br><br>
-  <button class="btn btn-danger" {{action "project" stu}}>I want to be a facilitator for my project.</button>
-  {{/each}}
-  <p id="error" class="text-danger"></p>
