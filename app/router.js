@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('admin');
   this.route('resetPassword');
   this.route('account');
+  this.route('error', {'path':':error'});
 });
 
 export default Router;
