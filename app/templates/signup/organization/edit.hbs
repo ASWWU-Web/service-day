@@ -5,6 +5,12 @@
       <br><br>
       <form {{action "save" on="submit"}}>
         {{organization-form org=model}}
+        {{#if isAdmin}}
+          <fieldset class='form-group'>
+            <label for='tools'> Password: (Leave blank for no password)</label>
+            {{input type='text' value=model.password class='form-control' id='password'}}
+          </fieldset>
+        {{/if}}
         <p id="success-text" style="color: green"></p>
         {{#link-to "signup.organization" class="btn btn-primary"}}Back To Your Projects{{/link-to}}
         <button type="submit" class="btn btn-success">Save!</button>

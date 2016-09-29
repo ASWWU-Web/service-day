@@ -74,7 +74,7 @@
 
                 {{else}}
                   <tr {{action "update" org stu}}>
-                    <td>{{org.name}}</td>
+                    <td>{{#if org.password }}🔒 {{/if}}{{org.name}}</td>
                     <td class="hidden-md-down">{{org.address}}</td>
                     <td>{{org.description}}</td>
                     <td class="hidden-sm-down">{{org.special_instructions}}</td>

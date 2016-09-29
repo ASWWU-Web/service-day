@@ -76,6 +76,14 @@ export default Ember.Route.extend({
       });
     },
     update(project,stu) {
+      if(project.get('password')){
+        var pass = prompt("Enter Project Password");
+        if(pass != project.get('password')) {
+          alert("Password Not Correct.");
+          return;
+        }
+      }
+      this.send('save',stu);
       var oldProject = stu.get('projectID');
       var newProject = project.get('id');
       var ref = new Firebase(ENV.firebase + "organizations");

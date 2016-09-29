@@ -1,6 +1,13 @@
 import Ember from 'ember';
+import ENV from "../../../config/environment";
 
 export default Ember.Route.extend({
+  setupController(controller, model) {
+    // obviously not very secure, but eh, oh wells ;)
+    // admin_emails are in config/environment.js
+    controller.isAdmin = ENV.admin_emails.indexOf(controller.get('session.currentUser.email')) > -1;
+    controller.set('model', model);
+  },
   model(params) {
     return this.get('store').findRecord('organization', params.id);
   },

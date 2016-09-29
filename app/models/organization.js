@@ -15,5 +15,6 @@ export default DS.Model.extend({
   minimum_count: DS.attr('number'),
   maximum_count: DS.attr('number'),
   tools: DS.attr('string'),
-  count: DS.attr('number')
+  count: DS.attr('number'),
+  password: DS.attr('string')
 });
