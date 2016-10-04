@@ -90,6 +90,9 @@
             <th {{action "sortBy" "tShirt"}}>tShirt</th>
             <th {{action "sortBy" "school"}}>school</th>
             <th {{action "sortBy" "isFacilitator"}}>isFacilitator</th>
+            <th>
+
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -102,6 +105,9 @@
               <td>{{stu.tShirt}}</td>
               <td>{{stu.school}}</td>
               <td>{{stu.isFacilitator}}</td>
+              <td>
+                <span style="color:red;" {{action 'removeStudent' stu}} >&#10006;</span>
+              </td>
             </tr>
           {{/each}}
         </tbody>

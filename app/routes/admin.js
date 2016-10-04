@@ -26,6 +26,24 @@ export default Ember.Route.extend({
         }, 2000);
       });
     },
+    removeStudent(student) {
+      if(confirm("Are you sure you want to delete student " + student.get("name") + "?") != true){
+        return;
+      }
+      var projectID = student.get('projectID');
+      if(projectID){
+        var ref = new Firebase(ENV.firebase + "organizations");
+        ref.child(projectID).once('value', function(dataSnapshot) {
+          if(dataSnapshot.val() == null){
+            return;
+          }
+           var old = dataSnapshot.val().count - 1;
+          ref.child(projectID).update({"count":old});
+        });
+      }
+      student.destroyRecord();
+
+    },
     csv(record) {
       var ref;
       //declare firebase object

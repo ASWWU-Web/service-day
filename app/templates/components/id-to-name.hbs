@@ -1,1 +1,5 @@
-{{organization.name}}
+{{#if (or organization.name (not studentID))}}
+  {{organization.name}}
+{{else }}
+  <span style="color:red;">PROJECT REMOVED</span>
+{{/if }}

@@ -23,6 +23,8 @@ export default Ember.Route.extend({
     },
     destroy() {
       var self = this;
+      if(confirm("Are you sure you want to delete this project?") != true)
+        return;
       this.modelFor(this.routeName).destroyRecord().then(function() {
         self.transitionTo('signup.organization');
       });
