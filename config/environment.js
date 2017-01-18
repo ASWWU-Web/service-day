@@ -4,11 +4,11 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'service-day',
     environment: environment,
-    firebase: 'https://serviceday.firebaseio.com/Fall2016/',
+    firebase: 'https://serviceday.firebaseio.com/Winter2017/',
     torii: {
       sessionServiceName: 'session'
     },
-    org_pass: "serviceDay2016",
+    org_pass: "serviceDay2017",
     admin_emails: ["brock.haugen@wallawalla.edu","ryan.s.rabello@gmail.com","community.service@wallawalla.edu","karin.gitchel@wwcc.edu","serviceevents@whitman.edu","katie.palumbo@wallawalla.edu"],
     baseURL: '/serviceday',
     locationType: 'auto',
@@ -33,7 +33,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     //This is the test database.
-    ENV.firebase = 'https://test-serviceday.firebaseio.com/Fall2016/';
+    ENV.firebase = 'https://test-serviceday.firebaseio.com/Winter2017/';
   }
 
   if (environment === 'test') {
