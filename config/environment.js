@@ -18,7 +18,9 @@ module.exports = function(environment) {
       "katie.palumbo@wallawalla.edu",
       "medinamj@whitman.edu",
       "communityservice@whitman.edu",
-      "erik.arndt@wwcc.edu"
+      "erik.arndt@wwcc.edu",
+      "lipy@whitman.edu",
+      "lipy.stu@whitman.edu"
     ],
     baseURL: '/serviceday',
     locationType: 'auto',
